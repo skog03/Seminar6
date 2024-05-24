@@ -47,7 +47,7 @@ public class Seminar6Application {
 				courseRepo.save(c2);
 				
 				
-				Grade g1 = new Grade(4, s1, c1);//John got 4 in AlgorithmT
+				Grade g1 = new Grade(3, s1, c1);//John got 4 in AlgorithmT
 				Grade g2 = new Grade(6, s1, c2);//John got 6 in JAVA
 				Grade g3 = new Grade(10, s2, c1);//Claire got 10 in AlgorithmT
 				Grade g4 = new Grade(7, s2, c2);//Claire got 7 in JAVA
