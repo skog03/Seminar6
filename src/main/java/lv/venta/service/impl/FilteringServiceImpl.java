@@ -68,7 +68,7 @@ public class FilteringServiceImpl implements IFilteringService{
 		if(id < 1) throw new Exception("Id should be positive");
 		if(!studentRepo.existsById(id)) throw new Exception("Student with id: " + id + " is not in the system");
 		
-		ArrayList<Course> result = ;
+		ArrayList<Course> result = coursesRepo.findByGradesStudentIds(id);
 		
 		if (result.isEmpty()) throw new Exception("Student with id: " + id + " does not have any courses");
 		
@@ -79,8 +79,14 @@ public class FilteringServiceImpl implements IFilteringService{
 
 	@Override
 	public float calculateAVGGradeInCourseId(long id) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		if(id < 1) throw new Exception("Id should be positive");
+		if(!coursesRepo.existsById(id)) throw new Exception("Course with id: " + id + " is not in the system");
+		
+		float result = gradeRepo.calculateAVGGrade_MyFunction(id);
+		
+		if (result == 0) throw new Exception("There is no grade in this course");
+		
+		return result;
 	}
 	
 }
